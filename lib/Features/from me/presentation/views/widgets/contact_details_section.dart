@@ -33,7 +33,7 @@ class ContactDetailsSection extends StatelessWidget {
           ),
           const CustomContactLabelTotal(
             label: 'Name',
-            icon: Icons.account_circle,
+            icon: 'assets/icons/icon_person.svg',
           ),
           CustomContactInput(
             hintText: 'Sender Name',
@@ -42,7 +42,7 @@ class ContactDetailsSection extends StatelessWidget {
           ),
           const CustomContactLabelTotal(
             label: 'Phone Number',
-            icon: Icons.phone,
+            icon: 'assets/icons/Icon_phone.svg',
           ),
           CustomContactInput(
             hintText: 'Mobile Number',
@@ -52,7 +52,7 @@ class ContactDetailsSection extends StatelessWidget {
           ),
           const CustomContactLabelTotal(
             label: 'Substitute Mobile Number',
-            icon: Icons.phone,
+            icon: 'assets/icons/Icon_phone.svg',
           ),
           CustomContactInput(
             hintText: 'Mobile Number',

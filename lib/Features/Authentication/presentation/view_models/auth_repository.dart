@@ -3,7 +3,7 @@ class AuthRepository {
     required String username,
     required String password,
   }) async {
-    await Future.delayed(const Duration(seconds: 1));
+    await Future.delayed(const Duration(seconds: 3));
 
     return username == "eyad" && password == "1234";
   }
@@ -22,19 +22,24 @@ class AuthRepository {
 
   Future<String?> forgotUsername({
     required String email,
+    required String phone,
   }) async {
     await Future.delayed(const Duration(seconds: 5));
-    if (email == "example@example.com") {
+    if (email == "eyaddev@gmail.com" || phone == '774677404') {
       return "user";
     }
     return null;
   }
 
-  Future<bool> forgotPassword({
-    required String username,
+  Future<String?> forgotPassword({
+    required String email,
+    required String phone,
   }) async {
     await Future.delayed(const Duration(seconds: 1));
-    return username == "user";
+    if (email == "eyaddev@gmail.com" || phone == '774677404') {
+      return '1234';
+    }
+    return null;
   }
 
   Future<bool> newPassword({

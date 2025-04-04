@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:shipstreem_app/Core/widgets/custom_sized_box.dart';
 import '../../../../../Core/utils/styles.dart';
 import 'custom_package_input.dart';
@@ -66,8 +67,8 @@ class SavedPackageCard extends StatelessWidget {
                 flex: 1,
                 child: InkWell(
                   onTap: onDelete,
-                  child: Image.asset(
-                    'assets/images/Icon_remov.png',
+                  child: SvgPicture.asset(
+                    'assets/icons/Icon_trash.svg',
                     width: 45,
                   ),
                 ),
@@ -84,6 +85,7 @@ class SavedPackageCard extends StatelessWidget {
                   enabled: false,
                 ),
               ),
+              30.SW,
               Expanded(
                 child: CustomPackageInput(
                   labelText: 'Width (CM)',

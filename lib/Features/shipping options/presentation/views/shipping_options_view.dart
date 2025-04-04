@@ -14,7 +14,7 @@ class ShippingOptionsView extends StatelessWidget {
           preferredSize: const Size.fromHeight(101),
           child:
               CustomAppBar(title: 'Shipping Options', onTap: () => Nav.back())),
-      body: ToMeViewBody(),
+      body: const ToMeViewBody(),
     );
   }
 }

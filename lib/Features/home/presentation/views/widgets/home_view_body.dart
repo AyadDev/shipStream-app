@@ -1,9 +1,5 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:shipstreem_app/Core/widgets/custom_search_text_field.dart';
-
-import 'custom_drawer.dart';
 
 class HomeViewBody extends StatelessWidget {
   HomeViewBody({
@@ -15,6 +11,7 @@ class HomeViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Stack(
+      clipBehavior: Clip.none,
       children: [
         Container(
           height: 446,
@@ -22,9 +19,6 @@ class HomeViewBody extends StatelessWidget {
             image: DecorationImage(
               image: AssetImage('assets/images/IMG-20250301-WA0015.jpg'),
               fit: BoxFit.cover,
-            ),
-            borderRadius: BorderRadius.vertical(
-              bottom: Radius.circular(30),
             ),
           ),
         ),
@@ -71,7 +65,7 @@ class HomeViewBody extends StatelessWidget {
         //   ),
         // ),
         Positioned(
-          top: 380,
+          top: 420,
           left: 20,
           right: 20,
           child: Form(

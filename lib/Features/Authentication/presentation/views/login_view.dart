@@ -2,13 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:shipstreem_app/Core/widgets/custom_sized_box.dart';
-import 'package:shipstreem_app/Features/Authentication/presentation/view_models/login%20cubit/login_cubit.dart';
+import 'package:shipstreem_app/Features/Authentication/presentation/view_models/forgot_username_cubit/forgot_username_cubit.dart';
+import 'package:shipstreem_app/Features/Authentication/presentation/view_models/login_cubit/login_cubit.dart';
+import 'package:shipstreem_app/Features/Authentication/presentation/view_models/password_cubit/forgot_password_cubit.dart';
 import '../../../../Core/utils/styles.dart';
 import '../../../../Core/widgets/custom_navigation_service.dart';
 import '../../../../constants.dart';
 import '../../../splash/presentation/views/splash_view.dart';
 import '../view_models/auth_repository.dart';
-import '../view_models/sign up cubit/sign_up_cubit.dart';
+import '../view_models/sign_up_cubit/sign_up_cubit.dart';
 import 'forgot_password_view.dart';
 import 'forgot_username_view.dart';
 import 'sign_up_view.dart';
@@ -42,7 +44,10 @@ class LoginView extends StatelessWidget {
       },
       builder: (context, state) {
         return ModalProgressHUD(
-          color: kPrimaryColor,
+          color: kPrimaryColor.withOpacity(0.4),
+          progressIndicator: const CircularProgressIndicator(
+            color: kPrimaryColor,
+          ),
           inAsyncCall: isLoading,
           child: Scaffold(
             backgroundColor: Colors.white,
@@ -86,7 +91,11 @@ class LoginView extends StatelessWidget {
                           CustomTextButton(
                               title: 'Forgot Username?',
                               onPressed: () {
-                                Nav.to(const ForgotNameView());
+                                Nav.to(BlocProvider(
+                                  create: (context) => ForgotUsernameCubit(
+                                      authRepository: AuthRepository()),
+                                  child: const ForgotNameView(),
+                                ));
                               }),
                         ],
                       ),
@@ -102,7 +111,11 @@ class LoginView extends StatelessWidget {
                           CustomTextButton(
                               title: 'Forgot Password?',
                               onPressed: () {
-                                Nav.to(const ForgotPasswordView());
+                                Nav.to(BlocProvider(
+                                  create: (context) => ForgotPasswordCubit(
+                                      authRepository: AuthRepository()),
+                                  child: const ForgotPasswordView(),
+                                ));
                               }),
                         ],
                       ),

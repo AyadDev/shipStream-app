@@ -8,7 +8,6 @@ class MenuView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // يمكن استخدام Scaffold مع AppBar بسيط أو تصميم مخصص
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: PreferredSize(
@@ -43,13 +42,11 @@ class MenuView extends StatelessWidget {
   }
 }
 
-// شاشة افتراضية للخروج (يمكنك تخصيصها كما تريد)
 class LogoutView extends StatelessWidget {
-  const LogoutView({Key? key}) : super(key: key);
+  const LogoutView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    // مثال لشاشة الخروج أو تسجيل الدخول
     return Scaffold(
       appBar: AppBar(
         title: const Text('Logout'),
@@ -60,32 +57,3 @@ class LogoutView extends StatelessWidget {
     );
   }
 }
-
-
-
-
-// ---
-
-// ملاحظات ختامية:
-
-// يمكن استخدام Themes لتوحيد الألوان والخطوط على مستوى التطبيق كله.
-
-// يمكنك تعديل الألوان (مثل Color(0xFF8D6E63)) والخلفيات (Color(0xFFF5F5F5)) لتتوافق تمامًا مع التصميم المطلوب.
-
-// إذا أردت محاذاة النص للعربية أو تغيير اتجاه الواجهة إلى RTL، يمكنك إضافة:
-
-// MaterialApp(
-//   localizationsDelegates: [
-//     // ...
-//   ],
-//   supportedLocales: [
-//     Locale('ar', ''), // لدعم العربية
-//     // ...
-//   ],
-//   // ...
-// );
-
-// واستخدام direction: TextDirection.rtl في أماكن معينة أو بشكل عام، مع ترجمة النصوص للعربية.
-
-
-// بهذا الشكل، تحصل على مشروع مبسط مكوّن من عدّة شاشات (مقسّمة في ملفات منفصلة) يطابق الفكرة والتصميم الأساسي المطلوب. يمكنك التعديل والإضافة حسب الحاجة. بالتوفيق!

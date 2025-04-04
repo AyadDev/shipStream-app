@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 import '../../../../../Core/utils/styles.dart';
 import '../../../../../constants.dart';
-
 
 class CustomContactLabelTotal extends StatelessWidget {
   const CustomContactLabelTotal({
@@ -11,7 +11,7 @@ class CustomContactLabelTotal extends StatelessWidget {
     required this.icon,
   });
   final String label;
-  final IconData icon;
+  final String icon;
 
   @override
   Widget build(BuildContext context) {
@@ -19,9 +19,8 @@ class CustomContactLabelTotal extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 5),
       child: Row(
         children: [
-          Icon(
+          SvgPicture.asset(
             icon,
-            color: kPrimaryColor,
           ),
           const SizedBox(width: 5),
           Text(label, style: Styles.textStyle16z),

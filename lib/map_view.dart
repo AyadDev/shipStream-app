@@ -169,7 +169,10 @@ import 'package:geocoding/geocoding.dart' as geocoding;
 import 'package:latlong2/latlong.dart';
 import 'package:location/location.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:shipstreem_app/Core/widgets/custom_app_bar.dart';
+import 'package:shipstreem_app/constants.dart';
 
+import 'Core/widgets/custom_navigation_service.dart';
 import 'Features/from me/data/address_model.dart';
 import 'Features/from me/presentation/view_model/address_cubit/address_cubit.dart';
 
@@ -256,7 +259,6 @@ class _MapViewState extends State<MapView> {
           district: place.administrativeArea ?? "غير معروف",
           street: place.street ?? "غير معروف",
         );
-        // تحديث الحالة في AddressCubit
         context.read<AddressCubit>().updateAddress(newAddress);
         Navigator.pop(context);
       } else {
@@ -271,9 +273,8 @@ class _MapViewState extends State<MapView> {
     }
   }
 
-  // Widget لإنشاء Marker للنقطة المحددة
   Widget _buildMarker() {
-    return Icon(
+    return const Icon(
       Icons.location_on,
       color: Colors.red,
       size: 40,
@@ -283,20 +284,33 @@ class _MapViewState extends State<MapView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('اختر الموقع'),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.check),
-            onPressed: _confirmSelection,
-          ),
-        ],
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(101),
+        child: Stack(
+          children: [
+            Positioned(
+              child: CustomAppBar(
+                title: 'Map',
+                onTap: () => Nav.back(),
+              ),
+            ),
+            Positioned(
+              top: 25,
+              left: MediaQuery.sizeOf(context).width,
+              child: IconButton(
+                icon: const Icon(Icons.check, size: 28, color: Colors.white),
+                onPressed: _confirmSelection,
+              ),
+            ),
+          ],
+        ),
       ),
       body: currentLocation == null
           ? const Center(child: CircularProgressIndicator())
           : FlutterMap(
               mapController: mapController,
               options: MapOptions(
+                backgroundColor: Colors.white,
                 initialCenter: LatLng(
                   currentLocation!.latitude!,
                   currentLocation!.longitude!,
@@ -326,6 +340,7 @@ class _MapViewState extends State<MapView> {
             ),
       // زر لتوسيط الخريطة على الموقع الحالي للمستخدم
       floatingActionButton: FloatingActionButton(
+        backgroundColor: kPrimaryColor,
         onPressed: () {
           if (currentLocation != null) {
             mapController.move(
@@ -337,7 +352,7 @@ class _MapViewState extends State<MapView> {
             );
           }
         },
-        child: const Icon(Icons.my_location),
+        child: const Icon(Icons.my_location, color: Colors.white),
       ),
     );
   }

@@ -25,13 +25,14 @@ class OrderSubmittedView extends StatelessWidget {
           90.SH,
           const CustomCheckIcon(),
           120.SH,
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 30),
+          SizedBox(
+            width: 323,
+            height: 108,
             child: Text(
-              'Thanks for choosing ShipStream \n  We are Processing Your Order, \n You wil receive Tracking \n Details Soon.',
-              maxLines: 6,
+              'Thanks for choosing ShipStream We are  Processing Your Order, You wil receive the Tracking Details Soon.',
               textAlign: TextAlign.center,
-              style: Styles.textStyle17.copyWith(fontWeight: FontWeight.w500),
+              style: Styles.textStyle17.copyWith(
+                  fontWeight: FontWeight.w600, fontFamily: 'Montserrat'),
             ),
           ),
         ],

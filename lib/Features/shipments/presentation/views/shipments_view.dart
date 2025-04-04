@@ -22,8 +22,8 @@ class ShipmentsView extends StatelessWidget {
                 onTap: () => Nav.to(const Layout()),
                 title: 'Shipment History',
               ),
-              CustomTabBar(
-                tabs: const [
+              const CustomTabBar(
+                tabs: [
                   Tab(text: "All"),
                   Tab(text: "Ongoing"),
                   Tab(text: "Delivered"),

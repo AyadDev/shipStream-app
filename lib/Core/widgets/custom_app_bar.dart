@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:shipstreem_app/constants.dart';
 
 class CustomAppBar extends StatelessWidget {
@@ -23,9 +24,10 @@ class CustomAppBar extends StatelessWidget {
         child: Row(
           children: [
             GestureDetector(
-                onTap: onTap,
-                child: const Icon(Icons.arrow_back,
-                    color: Colors.white, size: 24)),
+              onTap: onTap,
+              child: SvgPicture.asset('assets/icons/arrow_back2.svg',
+                  color: Colors.white, height: 18, width: 27),
+            ),
             Expanded(
               child: Center(
                 child: Text(

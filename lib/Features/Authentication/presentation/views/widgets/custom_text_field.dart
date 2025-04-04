@@ -25,6 +25,9 @@ class CustomTextField extends StatelessWidget {
     return SizedBox(
       height: 55,
       child: TextFormField(
+        keyboardAppearance: Brightness.dark,
+        cursorHeight: 20,
+        cursorWidth: 1.5,
         style: Styles.textStyle16z,
         textAlignVertical: TextAlignVertical.top,
         cursorColor: kPrimaryColor,
@@ -39,25 +42,20 @@ class CustomTextField extends StatelessWidget {
         decoration: InputDecoration(
           prefixIcon: prefixIcon,
           labelText: label,
-          labelStyle: const TextStyle(color: Colors.grey),
-          border: OutlineInputBorder(
-            borderSide: const BorderSide(width: 1, color: kPrimaryColor),
-            borderRadius: BorderRadius.circular(12),
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderSide: const BorderSide(width: 1, color: kPrimaryColor),
-            borderRadius: BorderRadius.circular(12),
-          ),
-          enabledBorder: OutlineInputBorder(
-            borderSide: const BorderSide(width: 1, color: kPrimaryColor),
-            borderRadius: BorderRadius.circular(12),
-          ),
-          errorBorder: OutlineInputBorder(
-            borderSide: const BorderSide(width: 1, color: kPrimaryColor),
-            borderRadius: BorderRadius.circular(12),
-          ),
+          labelStyle: Styles.textStyle17.copyWith(color: Colors.grey),
+          border: customOutlinInputBorder(),
+          focusedBorder: customOutlinInputBorder(),
+          enabledBorder: customOutlinInputBorder(),
+          errorBorder: customOutlinInputBorder(),
         ),
       ),
+    );
+  }
+
+  OutlineInputBorder customOutlinInputBorder() {
+    return OutlineInputBorder(
+      borderSide: const BorderSide(width: 1, color: kPrimaryColor),
+      borderRadius: BorderRadius.circular(12),
     );
   }
 }

@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:shipstreem_app/Core/utils/styles.dart';
 import 'package:shipstreem_app/constants.dart';
 
@@ -32,10 +33,15 @@ class CustomSearchTextField extends StatelessWidget {
           controller: controller,
           style: Styles.textStyle13,
           cursorColor: kPrimaryColor,
-          decoration: const InputDecoration(
-            contentPadding: EdgeInsets.all(16),
-            prefixIcon: Icon(Icons.qr_code_scanner, color: kPrimaryColor),
-            suffixIcon: Icon(Icons.search, color: kPrimaryColor),
+          decoration: InputDecoration(
+            contentPadding: const EdgeInsets.all(16),
+            prefixIcon: Padding(
+              padding: const EdgeInsets.all(12),
+              child: SvgPicture.asset(
+                'assets/icons/icon_barcode.svg',
+              ),
+            ),
+            suffixIcon: const Icon(Icons.search, color: kPrimaryColor),
             hintText: "Enter Tracking Number or scan Barcode",
             hintStyle: Styles.textStyle13,
             border: InputBorder.none,

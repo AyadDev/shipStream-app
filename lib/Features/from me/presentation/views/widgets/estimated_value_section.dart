@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import '../../../../../Core/utils/styles.dart';
 import '../../../../../constants.dart';
 
@@ -119,7 +120,9 @@ class _EstimatedValueSectionState extends State<EstimatedValueSection> {
           const SizedBox(height: 20),
           Row(
             children: [
-              Image.asset('assets/images/Exclamation Mark.png'),
+              SvgPicture.asset(
+                'assets/icons/exclamation_mark.svg',
+              ),
               const SizedBox(width: 15),
               Text(
                   "Shipment may be subject to customer duty and tax \n paid by the receiver.",

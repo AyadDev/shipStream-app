@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:shipstreem_app/constants.dart';
 
@@ -54,16 +55,11 @@ class _CustomProfelCardState extends State<CustomProfelCard> {
             });
       },
       child: imagePath == null
-          ? Container(
+          ? SizedBox(
               height: 100,
               width: 100,
-              decoration: const ShapeDecoration(
-                image: DecorationImage(
-                  image: AssetImage(
-                    'assets/images/ProfelImage.png',
-                  ),
-                ),
-                shape: RoundedRectangleBorder(),
+              child: SvgPicture.asset(
+                'assets/icons/icon_edit_profile.svg',
               ),
             )
           : Container(

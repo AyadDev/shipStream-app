@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:shipstreem_app/Core/widgets/custom_sized_box.dart';
-import 'package:shipstreem_app/Features/Authentication/presentation/view_models/sign%20up%20cubit/sign_up_cubit.dart';
+import 'package:shipstreem_app/Features/Authentication/presentation/view_models/sign_up_cubit/sign_up_cubit.dart';
 import 'package:shipstreem_app/Features/splash/presentation/views/splash_view.dart';
 import '../../../../Core/utils/styles.dart';
 import '../../../../Core/utils/validators.dart';
@@ -15,6 +15,7 @@ import 'widgets/custom_help_center.dart';
 import 'widgets/custom_logo.dart';
 import 'widgets/custom_text_field.dart';
 
+// ignore: must_be_immutable
 class SignUpView extends StatelessWidget {
   SignUpView({super.key});
 
@@ -49,7 +50,7 @@ class SignUpView extends StatelessWidget {
         if (state is SignupLoading) {
           isLoading = true;
         } else if (state is SignupSuccess) {
-          showSnackBar(context, ' تم التسجيل بنجاح!');
+          showSnackBar(context, 'Sign Up Successful!');
           isLoading = false;
           Nav.toReplacement(const SplashView());
         } else if (state is SignupFailure) {
@@ -59,7 +60,10 @@ class SignUpView extends StatelessWidget {
       },
       builder: (context, state) {
         return ModalProgressHUD(
-          color: kPrimaryColor,
+          color: kPrimaryColor.withOpacity(0.4),
+          progressIndicator: const CircularProgressIndicator(
+            color: kPrimaryColor,
+          ),
           inAsyncCall: isLoading,
           child: Scaffold(
             backgroundColor: Colors.white,

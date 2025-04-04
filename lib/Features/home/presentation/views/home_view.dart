@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import '../../../../Core/widgets/custom_navigation_service.dart';
 import '../../../notifications/presentation/views/notifications_screen.dart';
 import 'widgets/custom_drawer.dart';
 import 'widgets/home_view_body.dart';
@@ -10,7 +12,6 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: true,
-      backgroundColor: Colors.grey[100],
       appBar: AppBar(
         iconTheme: const IconThemeData(color: Colors.white),
         actions: [
@@ -18,12 +19,10 @@ class HomeView extends StatelessWidget {
             padding: const EdgeInsets.only(right: 16),
             child: InkWell(
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return const NotificationsView();
-                }));
+                Nav.to(const NotificationsView());
               },
-              child: Image.asset(
-                'assets/images/Group 350.png',
+              child: SvgPicture.asset(
+                'assets/icons/icon_notifications_.svg',
               ),
             ),
           )

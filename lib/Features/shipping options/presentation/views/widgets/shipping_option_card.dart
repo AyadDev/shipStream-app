@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shipstreem_app/constants.dart';
 
-///
 class ShippingOptionCard extends StatelessWidget {
   final String title;
   final String price;

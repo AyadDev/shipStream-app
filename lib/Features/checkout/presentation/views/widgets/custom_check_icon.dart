@@ -25,7 +25,8 @@ class CustomCheckIcon extends StatelessWidget {
           10.SH,
           Text(
             'Payment Successful',
-            style: Styles.textStyle17.copyWith(fontWeight: FontWeight.bold),
+            style: Styles.textStyle17
+                .copyWith(fontWeight: FontWeight.bold, fontSize: 18),
           ),
         ],
       ),

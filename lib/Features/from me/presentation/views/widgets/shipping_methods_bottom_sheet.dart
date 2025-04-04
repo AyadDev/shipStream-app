@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/svg.dart';
 import '../../../../../Core/utils/styles.dart';
 import '../../../../../Core/widgets/custom_elevated_button.dart';
 import '../../../../../constants.dart';
@@ -100,8 +101,8 @@ class _ShippingMethodsBottomSheetState
                             //     return MapSelectionScreen();
                             //   }));
                             // },
-                            child: Image.asset(
-                              'assets/images/Map.png',
+                            child: SvgPicture.asset(
+                              'assets/icons/icon_map.svg',
                             ),
                           )
                         ],
